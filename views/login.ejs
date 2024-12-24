@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font/stylesheet.css">
+  </head>
+  <body>
+
+    <div class="container-authorization">
+      <div class="panel-authorization">
+        <h1>Войти</h1>
+        <form action="/auth/login" method="POST">
+          <div class="input-form-authorization">
+            <input type="text" name="login" placeholder="Логин" required>
+          </div>
+          <div class="input-form-authorization">
+            <input type="password" name="password" placeholder="Пароль"
+              required>
+          </div>
+          <div class="btn">
+            <button type="submit">Войти</button>
+          </div>
+        </form>
+        <p>Нет аккаунта? <a href="/auth/register">Зарегистрироваться</a></p>
+      </div>
+    </div>
+
+  </body>
+</html>

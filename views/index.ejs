@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font/stylesheet.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-btns">
+            <a href="/">Главная</a>
+            <a href="/apartments">Апартаменты</a>
+            <% if (!userId) { %>
+            <a href="/auth/login">Вход</a>
+            <a href="/auth/register">Регистрация</a>
+            <% } else { %>
+            <a href="/profile">Профиль</a>
+            <a href="/auth/logout">Выход</a>
+            <% } %>
+          </div>
+        </div>
+        <div class="logo">Апартаменты от<br>Ярославская гостиница</div>
+      </div>
+    </header>
+
+    <section class="slogan">
+      <div class="container">
+        <div class="block-main">
+          <div class="block-main-text">
+            <h1>Подлинное качество</h1>
+            <p>Мы рады приветствовать вас в сердце Ярославля – города с богатой
+              историей и уникальной атмосферой.
+              Наша гостиница – это уютное место, где вы сможете отдохнуть,
+              насладиться комфортом и погрузиться в
+              атмосферу русского гостеприимства.</p>
+          </div>
+          <img src="img/quality.jpg" alt>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="block-main">
+          <img src="img/commission.jpg" alt>
+          <div class="block-main-text">
+            <h1>Мы предлагаем</h1>
+            <p>Удобные и современные номера.
+              Приветливый персонал, готовый помочь в любое время.
+              Отличное расположение рядом с главными достопримечательностями
+              города.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="block-main">
+          <div class="block-main-text" style="text-align: center;">
+            <h1>Готовы снять апартаменты?</h1>
+            <p>Давайте начнем</p>
+            <div class="btn">
+              <a href="/apartments">Просмотреть апартаменты</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

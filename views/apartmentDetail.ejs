@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Апартаменты <%= apartment.name %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font/stylesheet.css">
+    <script src="/js/thumbnail.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-btns">
+            <a href="/">Главная</a>
+            <a href="/apartments">Апартаменты</a>
+            <% if (!userId) { %>
+            <a href="/auth/login">Вход</a>
+            <a href="/auth/register">Регистрация</a>
+            <% } else { %>
+            <a href="/profile">Профиль</a>
+            <a href="/auth/logout">Выход</a>
+            <% } %>
+          </div>
+        </div>
+        <div class="logo">Апартаменты от<br>Ярославская гостиница</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="catalog">
+        <header>
+          <h1>Подробности апартамента</h1>
+        </header>
+
+        <main>
+
+          <div class="info-product-full-img">
+            <div class="main-image">
+              <img id="mainImage"
+                src="/data/<%= apartment.img.split(', ')[0] %>"
+                alt="Main Image">
+            </div>
+
+            <div class="thumbnails">
+              <% apartment.img.split(', ').forEach(function(image) { %>
+              <img class="thumbnail" src="/data/<%= image %>"
+                onclick="swapImage(this)" alt="Image of <%= apartment.name %>">
+              <% }); %>
+            </div>
+          </div>
+
+          <h2><%= apartment.name %></h2>
+          <p>Цена: <%= new Intl.NumberFormat('ru-RU').format(apartment.price) %>
+            &#8381;</p>
+          <div>
+            <h3><b>Описание характеристик:</b></h3>
+            <div class="description">
+              <p>Описание: <%= apartment.description %></p>
+              <p>Комнат в квартире: <%= apartment.rooms %></p>
+              <p>Предоплата: <%= apartment.prepayment %></p>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap;">
+            <div class="btn">
+              <a
+                href="/requests/create?apartments_id=<%= apartment.apartments_id %>">Оставить
+                заявку</a>
+            </div>
+            <div class="btn">
+              <a href>Оставить отзыв</a>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

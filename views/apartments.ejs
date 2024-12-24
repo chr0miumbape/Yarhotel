@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font/stylesheet.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-btns">
+            <a href="/">Главная</a>
+            <a href="/apartments">Апартаменты</a>
+            <% if (!userId) { %>
+            <a href="/auth/login">Вход</a>
+            <a href="/auth/register">Регистрация</a>
+            <% } else { %>
+            <a href="/profile">Профиль</a>
+            <a href="/auth/logout">Выход</a>
+            <% } %>
+          </div>
+        </div>
+        <div class="logo">Апартаменты от<br>Ярославская гостиница</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="catalog">
+        <% apartments.forEach(function(apartment) { %>
+        <div class="catalog-item">
+          <img src="/data/<%= apartment.img.split(', ')[0] %>"
+            alt="<%= apartment.name %>">
+          <div class="info">
+            <h3><%= apartment.name %></h3>
+            <p><%= apartment.price %> рублей/ночь</p>
+            <div class="btn">
+              <a href="/apartments/<%= apartment.apartments_id %>">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>
